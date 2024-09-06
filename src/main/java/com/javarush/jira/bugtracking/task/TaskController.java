@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import static com.javarush.jira.common.BaseHandler.createdResponse;
 
@@ -155,5 +156,22 @@ public class TaskController {
         public TaskTreeNode(TaskTo taskTo) {
             this(taskTo, new LinkedList<>());
         }
+    }
+
+    @PatchMapping("/{taskId}/tags")
+    public void addTags(@PathVariable long taskId, @RequestBody Set<String> tags) {
+        taskService.addTags(taskId, tags);
+    }
+
+    @PutMapping("/{taskId}/tags")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateTags(@PathVariable long taskId, @RequestBody Set<String> tags) {
+        taskService.updateTags(taskId, tags);
+    }
+
+    @DeleteMapping("/{taskId}/tags")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeTags(@PathVariable long taskId, @RequestBody Set<String> tags) {
+        taskService.removeTags(taskId, tags);
     }
 }
