@@ -1,0 +1,7 @@
+app:
+  host-url: http://localhost:8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jira
+    username: ${DB_USERNAME:jira}
+    password: ${DB_PASSWORD:JiraRush}

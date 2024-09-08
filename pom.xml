@@ -191,6 +191,20 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <!-- Стандартная директория ресурсов -->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- Дополнительная директория ресурсов -->
+            <resource>
+                <directory>resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
     <profiles>
@@ -209,6 +223,20 @@
                         </configuration>
                     </plugin>
                 </plugins>
+
+                <resources>
+                    <!-- Стандартная директория ресурсов -->
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                    <!-- Дополнительная директория ресурсов -->
+                    <resource>
+                        <directory>resources</directory>
+                        <includes>
+                            <include>**/*</include>
+                        </includes>
+                    </resource>
+                </resources>
             </build>
         </profile>
     </profiles>
